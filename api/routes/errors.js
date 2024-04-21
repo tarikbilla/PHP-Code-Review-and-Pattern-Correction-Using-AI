@@ -12,7 +12,8 @@ router.post('/', async (req, res) => {
         const { code, language, framework } = req.body;
         const GPTOutput = await openai.chat.completions.create({ 
             model: "gpt-3.5-turbo", 
-            messages: [{ role: "user", content: `Detect anti pattern for this ${language} code using the ${framework} framework: ${code}` }]
+            messages: [{ role: "user", content: `Review the following ${language} code through the lens of the ${framework} framework. Identify any anti-patterns present. Describe each anti-pattern you detect and explain why they are considered anti-patterns according to the ${framework} framework. Here's the code: ${code}
+            ` }]
         }); 
 
         const output_text = GPTOutput.choices[0].message.content;

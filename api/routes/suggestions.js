@@ -10,7 +10,8 @@ const openai = new OpenAI({
 router.post('/', async (req, res) => {
     try {
         const { code, language, framework } = req.body;
-        let prompt = `Based on the ${framework} framework, provide corrective suggestions for the following ${language} code that may contain anti-patterns. Only suggest improvements that align with best practices under the ${framework} methodology. Code:${code}. give me only currective code.`;
+        let prompt = `Examine the following ${language} code under the principles of the ${framework} framework. Identify any anti-patterns and provide specific code corrections. Ensure these corrections adhere strictly to the best practices prescribed by the ${framework} framework. Focus on enhancing maintainability and scalability. Here's the code: ${code}
+        . Give me only code`;
 
         const GPTOutput = await openai.chat.completions.create({ 
             model: "gpt-3.5-turbo", 
