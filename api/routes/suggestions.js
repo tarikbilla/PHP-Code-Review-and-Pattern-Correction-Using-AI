@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
     try {
         const { code, language, framework } = req.body;
         let prompt = `Examine the following ${language} code under the principles of the ${framework} framework. Identify any anti-patterns and provide specific code corrections. Ensure these corrections adhere strictly to the best practices prescribed by the ${framework} framework. Focus on enhancing maintainability and scalability. Here's the code: ${code}
-        . Give me only code`;
+        . Give me only code. No need code suggesion, if code pattern and structure is better`;
 
         const GPTOutput = await openai.chat.completions.create({ 
             model: "gpt-3.5-turbo", 
