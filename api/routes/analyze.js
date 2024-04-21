@@ -10,7 +10,7 @@ const openai = new OpenAI({
 router.post('/', async (req, res) => {
     try {
         const { code, language, framework } = req.body;
-        let prompt = `Using the ${framework} framework, critically analyze the following ${language} code snippet. Identify and explain any patterns and potential anti-patterns. Discuss how these patterns impact the functionality and maintainability of the code. Suggest detailed areas for improvement to align with the best practices of the ${framework} framework. Here's the code: ${code}`;
+        let prompt = `Provide a detailed analysis of this ${language} code, including syntax, methods, and identifiers: ${code}`;
 
         const GPTOutput = await openai.chat.completions.create({ 
             model: "gpt-3.5-turbo", 
