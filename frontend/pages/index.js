@@ -49,7 +49,10 @@ export default function Home() {
   };
 
   const formatText = (text) => {
-    return text.replaceAll("\n", "<br>");
+    text =  text.replaceAll("\n\n", "<br/><br/>");
+    text =  text.replaceAll("\n", "<br/>");
+    text =  text.replaceAll("**", "");
+    return text;
   };
 
   return (
